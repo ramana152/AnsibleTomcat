@@ -1,5 +1,5 @@
 ---
-- hosts: NODE
+- hosts: all
   become: yes
   tasks:
   - name: update and installing tomcat
