@@ -32,7 +32,7 @@
       dest: /etc/tomcat7/tomcat-users.xml
   - name: Deploy WAR File
     copy:
-      src: openmrs.war
+      src: .openmrs.war
       dest: /var/lib/tomcat7/webapps/gameoflife.war
     notify:
     - Restart Tomcat7 
