@@ -9,7 +9,7 @@
       update_cache: yes   
   - name: java parameters
     copy:
-      src: tomcat
+      src: tomcat7
       dest:  /etc/default/tomcat7
     notify:
     - Restart Tomcat7
