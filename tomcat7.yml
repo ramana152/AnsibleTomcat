@@ -32,8 +32,8 @@
       dest: /etc/tomcat7/tomcat-users.xml
   - name: Deploy WAR File
     copy:
-      src: /home/jenkins/workspace/gameoflife/gameoflife-web/target/gameoflife.war
-      dest: /var/lib/tomcat7/webapps/gameoflife.war
+      src: /var/lib/jenkins/.m2/repository/com/shopizer/sm-shop/2.4.0/sm-shop-2.4.0.war
+      dest: /var/lib/tomcat7/webapps/sm-shop-2.4.0.war
     notify:
     - Restart Tomcat7 
   handlers:
@@ -41,4 +41,4 @@
     service:
       name: tomcat7
       enabled: yes
-      state: restarted   
+      state: restarted         
