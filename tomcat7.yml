@@ -32,7 +32,7 @@
       dest: /etc/tomcat7/tomcat-users.xml
   - name: Deploy WAR File
     copy:
-      src: /var/lib/jenkins/.m2/repository/com/shopizer/sm-shop/2.4.0/sm-shop-2.4.0.war
+      src: /home/jenkins/sm-shop-2.4.0.war
       dest: /var/lib/tomcat7/webapps/sm-shop-2.4.0.war
     notify:
     - Restart Tomcat7 
