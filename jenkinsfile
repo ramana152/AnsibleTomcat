@@ -1,21 +1,23 @@
-pipeline {
-    agent any
+stages {
+        
+        stage ('Build Docker') {
 
-    stages {
-        stage('pull the docker image from docker hub') {
             steps {
-               sh label: '', script: 'docker pull ashishfulcrum/weblogic_server:11g'
+                sh 'docker pull ashishfulcrum/weblogic_server:11g'
             }
         }
-        stage('creating weblogic11h container with dynamic port') {
+
+        stage ('Run Docker') {
+            
             steps {
                 echo "${env.BRANCH_NAME}"
                 echo "${currentBuild.number}"
-               sh label: '', script: 'docker stop weblogic${env${env.BRANCH_NAME}${currentBuild.number}'
-               sh label: '', script: 'docker rm weblogic${env${env.BRANCH_NAME}${currentBuild.number}'
-               sh label: '', script: 'docker run --name weblogic${env.BRANCH_NAME}${currentBuild.number} -d -p 7001 ashishfulcrum/weblogic_server:11g'
+                //bat ("docker stop weblogic${env${env.BRANCH_NAME}${currentBuild.number}")
+                //bat ("docker rm weblogic${env${env.BRANCH_NAME}${currentBuild.number}")
+                bat ("docker run --name weblogic${env.BRANCH_NAME}${currentBuild.number} -d -p 7001 ashishfulcrum/weblogic_server:11g")
+                //echo "docker ps | grep spring${env.BRANCH_NAME} | sed 's/.*0.0.0.0://g' | sed 's/->.*//g'"
             }
         }
-		
-}
-}
+
+       
+    }
